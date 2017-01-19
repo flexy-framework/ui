@@ -1,0 +1,42 @@
+@mixin flexy-input($color) {
+  box-shadow: 0 0 0 1px $flexy-typo-caption-color inset;
+
+  &:focus, &:focus:hover {
+    box-shadow: 0 0 0 1px $color inset;
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 1px darken($color, 5%) inset;
+  }
+}
+
+.#{$flexy-prefix} {
+  &-input {
+    line-height: $flexy-button-height;
+    height: $flexy-button-height;
+    outline: none;
+    border: none;
+    background: {
+      color: #fff;
+    }
+    padding: 0 10px;
+    transition: border-color .2s ease;
+    -webkit-appearance: none;
+    border-radius: 0;
+    margin: 0;
+    font-size: $flexy-typo-base-font-size;
+    font-family: $flexy-font;
+
+    &:not(:focus) {
+      cursor: pointer;
+    }
+
+    @include flexy-colors {
+      @include flexy-input($flexy-current-color);
+    }
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}
